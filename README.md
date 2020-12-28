@@ -1,1 +1,5 @@
 # XamlSample
+
+## Brush
+-----------------------------
+>### Multiple Brush
