@@ -24,5 +24,10 @@ namespace XamlSample
         {
             InitializeComponent();
         }
+
+        private void Grid_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnWin10.OnMouseMove?.Invoke(sender, e);
+        }
     }
 }

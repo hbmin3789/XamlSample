@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XamlSample"
         xmlns:controls="clr-namespace:CustomControls.Controls;assembly=CustomControls"
+        xmlns:win="clr-namespace:XamlSample.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <controls:RangeSlider Width="300"/>
+    <Grid MouseMove="Grid_MouseMove" Background="Black">
+        <win:Windows10Button x:Name="btnWin10" Margin="100"/>
     </Grid>
 </Window>
