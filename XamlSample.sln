@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlSample", "XamlSample\Xa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControls", "CustomControls\CustomControls.csproj", "{2D78EEDF-B7CE-4D43-9334-DE098FF7AAA4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{A00D598D-3970-46C9-A885-091D05847333}"
+	ProjectSection(SolutionItems) = preProject
+		MultipleBrush.png = MultipleBrush.png
+		RangeSlider.png = RangeSlider.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
