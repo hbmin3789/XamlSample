@@ -7,6 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/Brush/VisualBrushTheme.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/CustomControls;component/Themes/CustomDefaultTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
