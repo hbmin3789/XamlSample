@@ -23,7 +23,8 @@
                     <ControlTemplate TargetType="local:Windows10Button">
                         <Grid x:Name="gdMain" ClipToBounds="True">
                             <Grid x:Name="gdBackground" Margin="{TemplateBinding BorderThickness}"
-                                  Background="{TemplateBinding Background}"/>
+                                  Background="{TemplateBinding Background}">
+                            </Grid>
                             <Grid x:Name="gdBackplate" Background="Transparent" ClipToBounds="False">
                                 <!--<Ellipse x:Name="ElpMouseDownEffect" Fill="White"
                                              HorizontalAlignment="Left" VerticalAlignment="Top"
@@ -50,7 +51,8 @@
                                 </Ellipse>
                             </Grid>
                             <Grid x:Name="gdContent" Background="{TemplateBinding Background}"
-                                      Margin="{TemplateBinding BorderThickness}"/>
+                                      Margin="{TemplateBinding BorderThickness}">
+                            </Grid>
                             <Border x:Name="Border" Background="Transparent"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -83,32 +85,6 @@
                                     </BeginStoryboard>
                                 </EventTrigger.Actions>
                             </EventTrigger>
-                            <!--<EventTrigger RoutedEvent="MouseDown">
-                                <EventTrigger.Actions>
-                                    <BeginStoryboard>
-                                        <Storyboard Storyboard.TargetName="ElpMouseDownEffect"
-                                                Storyboard.TargetProperty="DataContext.EffectSize">
-                                            <Int32Animation Duration="0:0:2" To="300"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                    <BeginStoryboard>
-                                        <Storyboard Storyboard.TargetName="ElpMouseDownEffect"
-                                                Storyboard.TargetProperty="Opacity">
-                                            <DoubleAnimation Duration="0:0:2" To="0.1"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger.Actions>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="MouseUp">
-                                <EventTrigger.Actions>
-                                    <BeginStoryboard>
-                                        <Storyboard Storyboard.TargetName="ElpMouseDownEffect"
-                                                Storyboard.TargetProperty="DataContext.EffectSize">
-                                            <Int32Animation Duration="0:0:0" To="40"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger.Actions>
-                            </EventTrigger>-->
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
