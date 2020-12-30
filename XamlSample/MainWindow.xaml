@@ -9,6 +9,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid MouseMove="Grid_MouseMove" Background="Black">
-        <win:Windows10Button x:Name="btnWin10" Margin="100"/>
+        <win:Windows10Button x:Name="btnWin10" Background="#aaaaaa"
+                             Width="300" Height="100"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             BorderThickness="10"/>
     </Grid>
 </Window>
