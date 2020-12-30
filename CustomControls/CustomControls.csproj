@@ -52,6 +52,7 @@
     <Compile Include="Controls\ERangeSliderMode.cs" />
     <Compile Include="Controls\RangeSlider.cs" />
     <Compile Include="Controls\ValueThumb.cs" />
+    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

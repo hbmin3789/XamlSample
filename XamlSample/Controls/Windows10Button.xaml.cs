@@ -54,6 +54,13 @@ namespace XamlSample.Controls
 
         #region Properties
 
+        private bool _isMouseDown;
+        public bool IsMouseDown
+        {
+            get => _isMouseDown;
+            set => SetProperty(ref _isMouseDown, value);
+        }
+
         private int _effectSize;
         public int EffectSize
         {
@@ -117,11 +124,10 @@ namespace XamlSample.Controls
 
         private void OnMouseMoveEvent(object sender, MouseEventArgs e)
         {
-
             var pos = e.GetPosition(this);
 
-            EffectX = (int)pos.X - center;
-            EffectY = (int)pos.Y - center;
+            EffectX = (int)pos.X - EffectSize / 2;
+            EffectY = (int)pos.Y - EffectSize / 2;
         }
 
         #region 
@@ -139,5 +145,20 @@ namespace XamlSample.Controls
         }
 
         #endregion
+
+        private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            IsMouseDown = true;
+        }
+
+        private void UserControl_MouseLeave(object sender, MouseEventArgs e)
+        {
+            IsMouseDown = false;
+        }
+
+        private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            IsMouseDown = false;
+        }
     }
 }

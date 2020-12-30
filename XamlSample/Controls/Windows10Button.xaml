@@ -6,44 +6,87 @@
         xmlns:local="clr-namespace:XamlSample.Controls"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:converter="clr-namespace:CustomControls.Converter;assembly=CustomControls"
         mc:Ignorable="d" Background="Transparent"
         d:DesignHeight="450" d:DesignWidth="800"
         HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
         OverridesDefaultStyle="True"
-        MouseMove="OnMouseMoveEvent">
+        MouseMove="OnMouseMoveEvent"
+             MouseDown="UserControl_MouseDown"
+             MouseLeave="UserControl_MouseLeave"
+             MouseUp="UserControl_MouseUp">
     <UserControl.Resources>
+        <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <Style TargetType="local:Windows10Button">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="local:Windows10Button">
                         <Grid x:Name="gdMain" ClipToBounds="True">
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <Grid x:Name="gdBackground">
-                                <Grid x:Name="gdBackplate"/>
-                                <Grid x:Name="gdHoverlight">
-                                    <Canvas>
-                                        <Ellipse x:Name="ElpMouseEffect" Fill="White"
-                                             Canvas.Left="{Binding EffectX}"
-                                             Canvas.Top="{Binding EffectY}"
-                                             Width="{Binding EffectSize}" 
-                                             Height="{Binding EffectSize}">
-                                            <Ellipse.Effect>
-                                                <BlurEffect Radius="100"/>
-                                            </Ellipse.Effect>
-                                        </Ellipse>
-                                    </Canvas>
-                                </Grid>
-                                <Grid x:Name="gdContent" Background="{TemplateBinding Background}"
+                            <Grid x:Name="gdBackground" Margin="{TemplateBinding BorderThickness}"
+                                  Background="{TemplateBinding Background}"/>
+                            <Grid x:Name="gdBackplate" Background="Transparent" ClipToBounds="False">
+                                <!--<Ellipse x:Name="ElpMouseDownEffect" Fill="White"
+                                             HorizontalAlignment="Left" VerticalAlignment="Top"
+                                             Width="{Binding EffectSize}" Height="{Binding EffectSize}"
+                                             Visibility="{Binding IsMouseDown,Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <Ellipse.RenderTransform>
+                                        <TranslateTransform X="{Binding EffectX}" Y="{Binding EffectY}"/>
+                                    </Ellipse.RenderTransform>
+                                    <Ellipse.Effect>
+                                        <BlurEffect x:Name="MouseDownBlur" Radius="100"/>
+                                    </Ellipse.Effect>
+                                </Ellipse>-->
+                            </Grid>
+                            <Grid x:Name="gdHoverlight">
+                                <Ellipse x:Name="ElpMouseEffect" Fill="White"
+                                             HorizontalAlignment="Left" VerticalAlignment="Top"
+                                             Width="{Binding EffectSize}" Height="{Binding EffectSize}">
+                                    <Ellipse.RenderTransform>
+                                        <TranslateTransform X="{Binding EffectX}" Y="{Binding EffectY}"/>
+                                    </Ellipse.RenderTransform>
+                                    <Ellipse.Effect>
+                                        <BlurEffect x:Name="Blur" Radius="100"/>
+                                    </Ellipse.Effect>
+                                </Ellipse>
+                            </Grid>
+                            <Grid x:Name="gdContent" Background="{TemplateBinding Background}"
                                       Margin="{TemplateBinding BorderThickness}"/>
-                                <Border x:Name="Border" Background="Transparent"
+                            <Border x:Name="Border" Background="Transparent"
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         Opacity="0.1"/>
-                            </Grid>
                         </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="gdContent" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="white"/>
+                            </Trigger>
+                            <!--<EventTrigger RoutedEvent="MouseDown">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard Storyboard.TargetName="ElpMouseDownEffect"
+                                                Storyboard.TargetProperty="DataContext.EffectSize">
+                                            <Int32Animation Duration="0:0:2" To="300"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                    <BeginStoryboard>
+                                        <Storyboard Storyboard.TargetName="ElpMouseDownEffect"
+                                                Storyboard.TargetProperty="Opacity">
+                                            <DoubleAnimation Duration="0:0:2" To="0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseUp">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard Storyboard.TargetName="ElpMouseDownEffect"
+                                                Storyboard.TargetProperty="DataContext.EffectSize">
+                                            <Int32Animation Duration="0:0:0" To="40"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>-->
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>

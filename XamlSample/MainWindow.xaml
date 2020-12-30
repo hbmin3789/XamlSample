@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid MouseMove="Grid_MouseMove" Background="Black">
-        <win:Windows10Button x:Name="btnWin10" Background="#aaaaaa"
+        <win:Windows10Button x:Name="btnWin10" Background="#111111"
                              Width="300" Height="100"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"
