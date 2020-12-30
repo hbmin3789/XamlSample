@@ -52,14 +52,37 @@
                             <Grid x:Name="gdContent" Background="{TemplateBinding Background}"
                                       Margin="{TemplateBinding BorderThickness}"/>
                             <Border x:Name="Border" Background="Transparent"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        Opacity="0.1"/>
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Opacity="0.2"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="gdContent" Property="Background" Value="Transparent"/>
-                                <Setter TargetName="Border" Property="BorderBrush" Value="white"/>
+                                <Setter TargetName="Border" Property="Opacity" Value="0.1"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                             </Trigger>
+
+                            <EventTrigger RoutedEvent="MouseDown">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="Opacity">
+                                            <DoubleAnimation Duration="0:0:0" To="0"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseUp">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="Opacity">
+                                            <DoubleAnimation Duration="0:0:0" To="0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
                             <!--<EventTrigger RoutedEvent="MouseDown">
                                 <EventTrigger.Actions>
                                     <BeginStoryboard>
